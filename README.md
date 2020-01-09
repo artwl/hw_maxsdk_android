@@ -4,7 +4,7 @@
 
 ## 下载地址
 
-SDK 下载地址：[v.1.0](https://github.com/artwl/hwsdk_ios/releases/tag/V2.4)
+SDK 下载地址：[v.1.0](https://github.com/artwl/hwsdk_android/releases/tag/V1.0)
 
 ## 接入文档
 
