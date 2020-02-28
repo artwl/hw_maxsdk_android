@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V1.1`
+本文档是Android版变现SDK，当前版本 `V1.2`
 
 ## 下载地址
 
-SDK 下载地址：[v.1.1](https://github.com/artwl/hwsdk_android/releases/tag/V1.1)
+SDK 下载地址：[v.1.2](https://github.com/artwl/hwsdk_android/releases/tag/V1.2)
 
 ## 接入文档
 
@@ -14,9 +14,11 @@ SDK 下载地址：[v.1.1](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (1.1 - 2020年1月)
+## 本版特性 (1.2 - 2020年2月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **1.2 新特性 (1.2 - 2020年2月28日)**
+  - 删除了一家渠道，渠道告知可能存在风险；
 
 - **1.1 新特性 (1.1 - 2020年1月18日)**
   - 修复插屏控制逻辑不准的bug
