@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V1.2`
+本文档是Android版变现SDK，当前版本 `V1.3`
 
 ## 下载地址
 
-SDK 下载地址：[v.1.2](https://github.com/artwl/hwsdk_android/releases/tag/V1.2)
+SDK 下载地址：[v.1.3](https://github.com/artwl/hwsdk_android/releases/tag/V1.3)
 
 ## 接入文档
 
@@ -14,9 +14,12 @@ SDK 下载地址：[v.1.2](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (1.2 - 2020年2月)
+## 本版特性 (1.3 - 2020年3月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **1.3 新特性 (1.3 - 2020年3月23日)**
+  - 同步iOS 3.1版本的功能，增加adjust打点；
+  
 - **1.2 新特性 (1.2 - 2020年2月28日)**
   - 删除了一家渠道，渠道告知可能存在风险；
 
