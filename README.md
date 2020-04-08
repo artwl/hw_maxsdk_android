@@ -8,7 +8,7 @@ SDK 下载地址：[v.1.5](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 ## 接入文档
 
-接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/V1.2-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 ## 需要帮助？
 
