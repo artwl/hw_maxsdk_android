@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V1.4`
+本文档是Android版变现SDK，当前版本 `V1.5`
 
 ## 下载地址
 
-SDK 下载地址：[v.1.4](https://github.com/artwl/hwsdk_android/releases/tag/V1.4)
+SDK 下载地址：[v.1.5](https://github.com/artwl/hwsdk_android/releases/tag/V1.5)
 
 ## 接入文档
 
@@ -14,9 +14,12 @@ SDK 下载地址：[v.1.4](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (1.4 - 2020年3月)
+## 本版特性 (1.5 - 2020年4月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **1.5 新特性 (1.5 - 2020年4月8日)**
+  - 同步iOS 4.1版本的功能，将打点事件，1个拆分成3个，提高服务端拉取效率；
+  
 - **1.4 新特性 (1.4 - 2020年3月30日)**
   - 同步iOS 4.0版本的功能，增加banner加载成功的回调；
   
