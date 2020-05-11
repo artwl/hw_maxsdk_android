@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V2.0`
+本文档是Android版变现SDK，当前版本 `V2.1`
 
 ## 下载地址
 
-SDK 下载地址：[v.2.0](https://github.com/artwl/hwsdk_android/releases/tag/V2.0)
+SDK 下载地址：[v.2.1](https://github.com/artwl/hwsdk_android/releases/tag/V2.1)
 
 ## 接入文档
 
@@ -14,9 +14,12 @@ SDK 下载地址：[v.2.0](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (2.0 - 2020年4月)
+## 本版特性 (2.1 - 2020年5月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **2.1 新特性 (2.1 - 2020年5月11日)**
+  - 新增2家广告渠道，显示激励广告挪到了主线程
+  
 - **2.0 新特性 (2.0 - 2020年4月23日)**
   - 广告渠道版本升级到最新；减轻服务端压力
   
