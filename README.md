@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V2.2`
+本文档是Android版变现SDK，当前版本 `V2.3`
 
 ## 下载地址
 
-SDK 下载地址：[v.2.2](https://github.com/artwl/hwsdk_android/releases/tag/V2.2)
+SDK 下载地址：[v.2.3](https://github.com/artwl/hwsdk_android/releases/tag/V2.3)
 
 ## 接入文档
 
@@ -14,9 +14,12 @@ SDK 下载地址：[v.2.2](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (2.2 - 2020年5月)
+## 本版特性 (2.3 - 2020年5月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **2.3 新特性 (2.3 - 2020年5月25日)**
+  - 修正admob激励视频，中途关闭也给了奖励的bug
+  
 - **2.2 新特性 (2.2 - 2020年5月18日)**
   - 修正内部插屏打点逻辑，显示激励广告挪到了主线程
   
