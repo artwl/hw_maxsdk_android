@@ -2,21 +2,33 @@
 
 本文档是Android版变现SDK，当前版本 `V2.3.1`
 
+本文档是Android版变现SDK，当前版本 `V3.0`（内测中）
+
 ## 下载地址
 
 SDK 下载地址：[v.2.3.1](https://github.com/artwl/hwsdk_android/releases/tag/V2.3.1)
+
+SDK 下载地址：[v.3.0](https://github.com/artwl/hwsdk_android/releases/tag/V3.0)
 
 ## 接入文档
 
 接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
+3.0版本 接入请参考：[SDK 3.0 接入文档](https://github.com/artwl/hwsdk_android/wiki/3.0%E2%80%94%E2%80%94%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+
+
 ## 需要帮助？
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (2.3.1 - 2020年7月)
+## 本版特性 (3.0 - 2020年7月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **3.0 新特性 (3.0 - 2020年7月28日)**
+  - 1.更精细化计算数据
+  - 2.推广需要打几个点，用于更多维度买量
+  - 3.和以前版本的SDK，取消了Application，初始化参数有8个token
+  
 - **2.3.1 新特性 (2.3.1 - 2020年7月23日)**
   - 升级csj版本，2.5.0.0之前的不让使用，现在升级到2.9.0.3版本，csj插屏可以使用
   
