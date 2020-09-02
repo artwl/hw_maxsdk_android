@@ -1,29 +1,28 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V2.3.1`
-
-本文档是Android版变现SDK，当前版本 `V3.1`（内测中）
+本文档是Android版变现SDK，当前版本 `V3.2`
 
 ## 下载地址
 
-SDK 下载地址：[v.2.3.1](https://github.com/artwl/hwsdk_android/releases/tag/V2.3.1)
-
-SDK 下载地址：[v.3.1](https://github.com/artwl/hwsdk_android/releases/tag/V3.1)
+SDK 下载地址：[v.3.1](https://github.com/artwl/hwsdk_android/releases/tag/V3.2)
 
 ## 接入文档
 
 接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
-3.1版本 接入请参考：[SDK 3.1 接入文档](https://github.com/artwl/hwsdk_android/wiki/3.0%E2%80%94%E2%80%94%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+3.2版本 接入请参考：[SDK 3.2 接入文档](https://github.com/artwl/hwsdk_android/wiki/3.0%E2%80%94%E2%80%94%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (3.1 - 2020年8月)
+## 本版特性 (3.2 - 2020年9月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **3.2 新特性 (3.2 - 2020年9月2日)**
+  - 删除一家被google play警告的SDK
+  
 - **3.1 新特性 (3.1 - 2020年8月5日)**
   - 升级Pangle版本
   
