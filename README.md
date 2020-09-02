@@ -4,7 +4,7 @@
 
 ## 下载地址
 
-SDK 下载地址：[v.3.1](https://github.com/artwl/hwsdk_android/releases/tag/V3.2)
+SDK 下载地址：[v.3.2](https://github.com/artwl/hwsdk_android/releases/tag/V3.2)
 
 ## 接入文档
 
