@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V3.2`
+本文档是Android版变现SDK，当前版本 `V3.3`
 
 ## 下载地址
 
-SDK 下载地址：[v.3.2](https://github.com/artwl/hwsdk_android/releases/tag/V3.2)
+SDK 下载地址：[v.3.3](https://github.com/artwl/hwsdk_android/releases/tag/V3.3)
 
 ## 接入文档
 
@@ -15,9 +15,12 @@ SDK 下载地址：[v.3.2](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (3.2 - 2020年9月)
+## 本版特性 (3.3 - 2020年9月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **3.3 新特性 (3.3 - 2020年9月30日)**
+  - 针对推广AEO投放，增加功能支持，需要开发打对应的5个事件，调用方法见文档
+  
 - **3.2 新特性 (3.2 - 2020年9月2日)**
   - 删除一家被google play警告的SDK
   
