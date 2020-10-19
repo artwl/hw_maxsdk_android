@@ -6,6 +6,8 @@
 
 SDK 下载地址：[v.3.4](https://github.com/artwl/hwsdk_android/releases/tag/V3.4)
 
+beta SDK 下载地址：[v 5.0] (https://github.com/artwl/hwsdk_android/releases/tag/V5.0)
+
 ## 接入文档
 
 接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
@@ -18,6 +20,11 @@ SDK 下载地址：[v.3.4](https://github.com/artwl/hwsdk_android/releases/tag/V
 ## 本版特性 (3.4 - 2020年10月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **beta 5.0 新特性 (5.0 - 2020年10月19日)**
+  - 1.全新的SDK，较上一个版本，initSDK的参数从10个减少到7个，其他接口保持一致
+  - 2.注意xml的配置
+  - 3.注意gradle修改了很多，需要重新配置
+  
 - **3.4 新特性 (3.4 - 2020年10月9日)**
   - facebook针对没有产生facebook收益的产品，9月28号一刀切，新应用需要升级到3.4才有facebook广告填充
   
