@@ -6,7 +6,7 @@
 
 SDK 下载地址：[v.3.4](https://github.com/artwl/hwsdk_android/releases/tag/V3.4)
 
-beta SDK 下载地址：[v 5.0] (https://github.com/artwl/hwsdk_android/releases/tag/V5.0)
+beta SDK 下载地址：[v.5.0](https://github.com/artwl/hwsdk_android/releases/tag/V5.0)
 
 ## 接入文档
 
