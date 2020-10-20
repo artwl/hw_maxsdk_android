@@ -12,6 +12,8 @@ beta SDK 下载地址：[v.5.0](https://github.com/artwl/hwsdk_android/releases/
 
 接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
+[5.0 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+
 
 ## 需要帮助？
 
