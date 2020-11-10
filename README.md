@@ -6,13 +6,13 @@
 
 SDK 下载地址：[v.3.5](https://github.com/artwl/hwsdk_android/releases/tag/V3.5)
 
-beta SDK 下载地址：[v.5.0.1](https://github.com/artwl/hwsdk_android/releases/tag/V5.0.1)
+beta SDK 下载地址：[v.5.1](https://github.com/artwl/hwsdk_android/releases/tag/V5.1)
 
 ## 接入文档
 
 接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
-[5.0.1 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+[5.1 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
@@ -22,6 +22,10 @@ beta SDK 下载地址：[v.5.0.1](https://github.com/artwl/hwsdk_android/release
 ## 本版特性 (3.5 - 2020年11月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+
+- **beta 5.1 新特性 (5.1 - 2020年11月10日)**
+  - 1.增加服务端show，close打点
+  
 - **beta 5.0.1 新特性 (5.0.1 - 2020年10月19日 11月4日Update)**
   - 1.全新的SDK，较上一个版本，initSDK的参数从10个减少到7个，其他接口保持一致
   - 2.注意xml的配置
