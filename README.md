@@ -1,27 +1,29 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V3.5`
+本文档是Android版变现SDK，当前版本 `V5.2`
 
 ## 下载地址
 
-SDK 下载地址：[v.3.5](https://github.com/artwl/hwsdk_android/releases/tag/V3.5)
-
-beta SDK 下载地址：[v.5.1](https://github.com/artwl/hwsdk_android/releases/tag/V5.1)
+ SDK 下载地址：[v.5.2](https://github.com/artwl/hwsdk_android/releases/tag/V5.2)
 
 ## 接入文档
 
-接入请参考：[SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+接入请参考：
 
-[5.1 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+[5.2 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (3.5 - 2020年11月)
+## 本版特性 (5.2 - 2020年11月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+
+- **5.2 新特性 (5.2 - 2020年11月19日)**
+  - 1.修复统计会话数不准的bug
+  - 2.经过内部2个量级大的产品的验证，现在改成开放版
 
 - **beta 5.1 新特性 (5.1 - 2020年11月10日)**
   - 1.增加服务端show，close打点
