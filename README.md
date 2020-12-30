@@ -1,25 +1,29 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V5.3`
+本文档是Android版变现SDK，当前版本 `V5.4`
 
 ## 下载地址
 
- SDK 下载地址：[v.5.3](https://github.com/artwl/hwsdk_android/releases/tag/V5.3)
+ SDK 下载地址：[v.5.](https://github.com/artwl/hwsdk_android/releases/tag/V5.4)
 
 ## 接入文档
 
 接入请参考：
 
-[5.3 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+[5.4 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (5.3 - 2020年12月)
+## 本版特性 (5.4 - 2020年12月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+
+- **5.4 新特性 (5.4 - 2020年12月30日)**
+  - 1.新增mintegral渠道；
+  如果是从之前的版本升级，注意jar的替换，两个build.gradle中的修改
 
 - **5.3 新特性 (5.3 - 2020年12月3日)**
   - 1.升级SDK版本，14.10
