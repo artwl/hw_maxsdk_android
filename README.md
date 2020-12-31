@@ -4,7 +4,7 @@
 
 ## 下载地址
 
- SDK 下载地址：[v.5.](https://github.com/artwl/hwsdk_android/releases/tag/V5.4)
+ SDK 下载地址：[v.5.4](https://github.com/artwl/hwsdk_android/releases/tag/V5.4)
 
 ## 接入文档
 
