@@ -1,16 +1,16 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V5.5`
+本文档是Android版变现SDK，当前版本 `V6.0`
 
 ## 下载地址
 
- SDK 下载地址：[v.5.5](https://github.com/artwl/hwsdk_android/releases/tag/V5.5)
+ SDK 下载地址：[v.6.0](https://github.com/artwl/hwsdk_android/releases/tag/V6.0)
 
 ## 接入文档
 
 接入请参考：
 
-[5.5 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+[6.0 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v5.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
@@ -20,6 +20,8 @@
 ## 本版特性 (5.5 - 2020年12月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **6.0 新特性 (6.0 - 2021年3月24日)**
+  - 1.支持开屏广告
 
 - **5.5 新特性 (5.5 - 2021年1月14日)**
   - 1.支持6家bidding
