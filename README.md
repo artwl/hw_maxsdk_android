@@ -1,16 +1,16 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V6.0`
+本文档是Android版变现SDK，当前版本 `V6.2`
 
 ## 下载地址
 
- SDK 下载地址：[v.6.0](https://github.com/artwl/hwsdk_android/releases/tag/V6.0)
+ SDK 下载地址：[v.6.2](https://github.com/artwl/hwsdk_android/releases/tag/V6.2)
 
 ## 接入文档
 
 接入请参考：
 
-[6.0 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v6.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+[6.2 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v6.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
@@ -20,6 +20,9 @@
 ## 本版特性 (6.0 - 2021年3月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **6.2 新特性 (6.0 - 2021年4月28日)**
+  - 1.修改LTV打点的位置，使得LTV计算更加精准
+  - 
 - **6.0 新特性 (6.0 - 2021年3月24日)**
   - 1.支持开屏广告
   - 2.支持内购二次验证打点
