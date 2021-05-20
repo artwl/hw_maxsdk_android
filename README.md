@@ -1,25 +1,29 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V6.2`
+本文档是Android版变现SDK，当前版本 `V6.3`
 
 ## 下载地址
 
- SDK 下载地址：[v.6.2](https://github.com/artwl/hwsdk_android/releases/tag/V6.2)
+ SDK 下载地址：[v.6.3](https://github.com/artwl/hwsdk_android/releases/tag/V6.3)
 
 ## 接入文档
 
 接入请参考：
 
-[6.2 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v6.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
+[6.3 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v6.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
 
 ## 需要帮助？
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (6.2 - 2021年4月)
+## 本版特性 (6.3 - 2021年5月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **6.3 新特性 (6.3 - 2021年5月19日)**
+  - 1.升级Facebook的版本，针对新产品只有用这个版本才有facebook广告
+  - 2.替换一家广告的下载地址，之前的旧地址已经无法下载
+  
 - **6.2 新特性 (6.2 - 2021年4月28日)**
   - 1.修改LTV打点的位置，使得LTV计算更加精准
   - 
