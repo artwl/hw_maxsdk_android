@@ -8,10 +8,11 @@
 
 ## 接入文档
 
-接入请参考：
+接入请参考：2个选择1个都可以
 
 [6.7 SDK接入文档](https://github.com/artwl/hwsdk_android/wiki/v6.0-%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3)
 
+[由于github的文档阅读比较困难，核心步骤精简了一下，在飞书文档中](https://hellowd.feishu.cn/docs/doccnj7q5U3oLz1Grlt6k0fO2kp?from=from_copylink)
 
 ## 需要帮助？
 
