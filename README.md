@@ -1,12 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V6.7`
+本文档是Android版变现SDK，当前版本 `V7.0`
 
 ## 下载地址
 
- SDK 下载地址：[v.6.7](https://github.com/artwl/hwsdk_android/releases/tag/V6.7)
- 
- Beta SDK 下载地址：[v.7.0](https://github.com/artwl/hwsdk_android/releases/tag/V7.0)
+SDK 下载地址：[v.7.0](https://github.com/artwl/hwsdk_android/releases/tag/V7.0)
 
 ## 接入文档
 
