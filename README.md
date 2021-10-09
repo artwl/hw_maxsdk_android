@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V7.2`
+本文档是Android版变现SDK，当前版本 `V7.3`
 
 ## 下载地址
 
-SDK 下载地址：[v.7.2](https://github.com/artwl/hwsdk_android/releases/tag/V7.2)
+SDK 下载地址：[v.7.3](https://github.com/artwl/hwsdk_android/releases/tag/V7.3)
 
 ## 接入文档
 
@@ -18,9 +18,12 @@ SDK 下载地址：[v.7.2](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (7.2 - 2021年9月)
+## 本版特性 (7.3 - 2021年9月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **7.2 新特性 (7.3 - 2021年9月2日)**
+  - 1.针对Android12 增加了一个适配的权限
+  
 - **7.2 新特性 (7.2 - 2021年9月2日)**
   - 1.针对国内流量海外流量进行了区分
   - 2.facebook升级到了6.6.0
