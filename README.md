@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V7.3`
+本文档是Android版变现SDK，当前版本 `V7.4`
 
 ## 下载地址
 
-SDK 下载地址：[v.7.3](https://github.com/artwl/hwsdk_android/releases/tag/V7.3)
+SDK 下载地址：[v.7.4](https://github.com/artwl/hwsdk_android/releases/tag/V7.4)
 
 ## 接入文档
 
@@ -18,10 +18,14 @@ SDK 下载地址：[v.7.3](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (7.3 - 2021年9月)
+## 本版特性 (7.4 - 2021年10月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
-- **7.2 新特性 (7.3 - 2021年9月2日)**
+- **7.4 新特性 (7.4 - 2021年10月14日)**
+  - 1.针对Facebook升级了全部SDK的版本
+  - 2.将插屏广告播放调整到主线程
+  
+- **7.3 新特性 (7.3 - 2021年9月2日)**
   - 1.针对Android12 增加了一个适配的权限
   
 - **7.2 新特性 (7.2 - 2021年9月2日)**
