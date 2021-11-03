@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V7.4`
+本文档是Android版变现SDK，当前版本 `V8.0`
 
 ## 下载地址
 
-SDK 下载地址：[v.7.4](https://github.com/artwl/hwsdk_android/releases/tag/V7.4)
+SDK 下载地址：[v.8.0](https://github.com/artwl/hwsdk_android/releases/tag/V8.0)
 
 ## 接入文档
 
@@ -18,9 +18,13 @@ SDK 下载地址：[v.7.4](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (7.4 - 2021年10月)
+## 本版特性 (8.0 - 2021年11月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **8.0 新特性 (8.0 - 2021年11月3日)**
+  - 1.针对Facebook无法精准归因的问题，做了升级
+  - 2.支持商业化方面的AB测试
+  
 - **7.4 新特性 (7.4 - 2021年10月14日)**
   - 1.针对Facebook升级了全部SDK的版本
   - 2.将插屏广告播放调整到主线程
