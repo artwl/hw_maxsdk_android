@@ -4,7 +4,7 @@
 
 ## 下载地址
 
-SDK 下载地址：[v.8.0.1](https://github.com/artwl/hwsdk_android/releases/tag/V8.0.1)
+SDK 下载地址：[v.8.1](https://github.com/artwl/hwsdk_android/releases/tag/V8.1)
 
 ## 接入文档
 
@@ -18,9 +18,12 @@ SDK 下载地址：[v.8.0.1](https://github.com/artwl/hwsdk_android/releases/tag
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (8.0.1 - 2021年11月)
+## 本版特性 (8.1 - 2021年11月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **8.1 新特性 (8.1 - 2021年11月24日)**
+  - 1.针对内购，订阅进行了优化，调用二次验证的API增加了订单id的参数。
+
 - **8.0.1 新特性 (8.0.1 - 2021年11月9日)**
   - 1.针对Facebook无法精准归因的问题，做了升级
   - 2.支持商业化方面的AB测试
