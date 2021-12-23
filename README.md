@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V8.2`
+本文档是Android版变现SDK，当前版本 `V8.4`
 
 ## 下载地址
 
-SDK 下载地址：[v.8.2](https://github.com/artwl/hwsdk_android/releases/tag/V8.2)
+SDK 下载地址：[v.8.4](https://github.com/artwl/hwsdk_android/releases/tag/V8.4)
 
 ## 接入文档
 
@@ -18,9 +18,21 @@ SDK 下载地址：[v.8.2](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (8.2 - 2021年12月)
+## 本版特性 (8.4 - 2021年12月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **8.4 新特性 (8.4 - 2021年12月23日)**
+  - 1.支持了内购打点到firebase
+  - 2.去除了http的支持，注意xml中，删了一段代码
+  - 3.去掉了adcolony的广告
+  
+- **8.3 新特性 (8.3 - 2021年12月15日)**
+  - 1.这个版本主要针对banner的产品做了大的调整；
+  - 2.返回banner的高度，默认是50dp或者90d
+  - 3.获取Banner对象；通过获取这个banner对象，可以自由灵活控制banner显示的位置，以及对齐方式
+  - 4.针对banner，增加了smaato渠道，注意build.gradle中修改了
+  - 5.针对内购，SDK内部增加了一个参数，用于更精准的计算内购相关的模型
+
 - **8.2 新特性 (8.2 - 2021年12月9日)**
   - 1.支持了内购打点到firebase
   - 2.去除了http的支持，注意xml中，删了一段代码
