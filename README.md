@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V8.5`
+本文档是Android版变现SDK，当前版本 `V8.6`
 
 ## 下载地址
 
-SDK 下载地址：[v.8.5](https://github.com/artwl/hwsdk_android/releases/tag/V8.5)
+SDK 下载地址：[v.8.6](https://github.com/artwl/hwsdk_android/releases/tag/V8.6)
 
 ## 接入文档
 
@@ -18,9 +18,12 @@ SDK 下载地址：[v.8.5](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (8.5 - 2022年2月)
+## 本版特性 (8.6 - 2022年2月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+
+- **8.6 新特性 (8.6 - 2022年2月16日)**
+  - 1.针对内购，新增一种LTV打点的方式；和服务端一起让内购的LTV更准确
 
 - **8.5 新特性 (8.5 - 2022年2月11日)**
   - 1.完善banner的ltv打点
