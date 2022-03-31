@@ -1,6 +1,6 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.1.1`
+本文档是Android版变现SDK，当前版本 `V9.1.1`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
