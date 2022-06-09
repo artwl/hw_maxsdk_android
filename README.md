@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.4`， <b>  建议接SDK，就接最新的版本 </B>
+本文档是Android版变现SDK，当前版本 `V9.5`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
-SDK 下载地址：[v.9.4](https://github.com/artwl/hwsdk_android/releases/tag/V9.4)
+SDK 下载地址：[v.9.5](https://github.com/artwl/hwsdk_android/releases/tag/V9.5)
 
 ## 接入文档
 
@@ -18,9 +18,14 @@ SDK 下载地址：[v.9.4](https://github.com/artwl/hwsdk_android/releases/tag/V
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (9.4 - 2022年5月)
+## 本版特性 (9.5 - 2022年6月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **9.5 新特性 (9.5 - 2022年6月9日)**
+  - 1.新用户请求服务端失败后SDK会读取本地hw-services.json配置加载广告。
+  - 2.请求间隔时间调整为15秒。
+  - 3.服务端参数解析失败时SDK打点hwServiceErrorToken事件到Adjust。
+
 - **9.4 新特性 (9.4 - 2022年5月25日)**
   - 1.升级facebook到6.11.0
   - 2.删除掉9.3中的另外一套聚合
