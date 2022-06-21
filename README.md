@@ -19,7 +19,7 @@ SDK 下载地址：[v.9.5.2](https://github.com/artwl/hwsdk_android/releases/tag
 详细内容请查看更新记录，有完整的更新内容列表。
 - **9.5.2 新特性 (9.5.2 - 2022年6月21日)**
   - 1.新增Firebase打点ad_impression
-  - 
+  
 - **9.5.1 新特性 (9.5.1 - 2022年6月17日)**
   - 1.添加Banner展示Firebase的打点
 
