@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.5.1`， <b>  建议接SDK，就接最新的版本 </B>
+本文档是Android版变现SDK，当前版本 `V9.5.2`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
-SDK 下载地址：[v.9.5.1](https://github.com/artwl/hwsdk_android/releases/tag/V9.5.1)
+SDK 下载地址：[v.9.5.2](https://github.com/artwl/hwsdk_android/releases/tag/V9.5.2)
 
 ## 接入文档
 
@@ -14,9 +14,12 @@ SDK 下载地址：[v.9.5.1](https://github.com/artwl/hwsdk_android/releases/tag
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (9.5.1 - 2022年6月)
+## 本版特性 (9.5.2 - 2022年6月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **9.5.2 新特性 (9.5.2 - 2022年6月21日)**
+  - 1.新增Firebase打点ad_impression
+  - 
 - **9.5.1 新特性 (9.5.1 - 2022年6月17日)**
   - 1.添加Banner展示Firebase的打点
 
