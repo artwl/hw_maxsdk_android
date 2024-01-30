@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.7.0`， <b>  建议接SDK，就接最新的版本 </B>
+本文档是Android版变现SDK，当前版本 `V9.7.8`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
-SDK 下载地址：[v.9.7.0](https://github.com/artwl/hwsdk_android/releases/tag/V9.7.0)
+SDK 下载地址：[v.9.7.8](https://github.com/artwl/hwsdk_android/releases/tag/V9.7.8)
 
 ## 接入文档
 
@@ -14,9 +14,14 @@ SDK 下载地址：[v.9.7.0](https://github.com/artwl/hwsdk_android/releases/tag
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (9.7.0 - 2022年10月)
+## 本版特性 (9.7.8 - 2024年1月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+
+- **9.7.8 新特性 (9.7.8 - 2024年1月24日)**
+  - 1.更新AppLovin版本至最新版本，更新其他第三方库版本
+  - 2.支持Google CMP
+    
 - **9.7.0 新特性 (9.7.0 - 2022年10月10日)**
   - 1.更新AppLovin版本至11.5.2，更新其他第三方库版本
   - 2.okHttpClient请求时添加Android系统的判断，系统版本大于等于21
