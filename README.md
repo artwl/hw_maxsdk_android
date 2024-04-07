@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.7.9`， <b>  建议接SDK，就接最新的版本 </B>
+本文档是Android版变现SDK，当前版本 `V9.8.0`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
-SDK 下载地址：[v.9.7.9](https://github.com/artwl/hw_maxsdk_android/releases)
+SDK 下载地址：[v.9.8.0](https://github.com/artwl/hw_maxsdk_android/releases)
 
 ## 接入文档
 
@@ -14,10 +14,14 @@ SDK 下载地址：[v.9.7.9](https://github.com/artwl/hw_maxsdk_android/releases
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (9.7.9 - 2024年2月)
+## 本版特性 (9.8.0 - 2024年4月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
 
+- **9.8.0 新特性 (9.8.0 - 2024年4月7日)**
+  - 1.更新第三方库版本
+  - 2.新增bidmachine渠道
+    
 - **9.7.9 新特性 (9.7.9 - 2024年2月19日)**
   - 1.更新第三方库版本
   - 2.支持Google DMA
