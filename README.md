@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.8.17`， <b>  建议接SDK，就接最新的版本 </B>
+本文档是Android版变现SDK，当前版本 `V9.8.18`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
-SDK 下载地址：[v.9.8.17](https://github.com/artwl/hw_maxsdk_android/releases)
+SDK 下载地址：[v.9.8.18](https://github.com/artwl/hw_maxsdk_android/releases)
 
 ## 接入文档
 
@@ -14,9 +14,13 @@ SDK 下载地址：[v.9.8.17](https://github.com/artwl/hw_maxsdk_android/release
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (9.8.17 - 2025年4月)
+## 本版特性 (9.8.18 - 2025年4月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
+- **9.8.18 新特性 (9.8.18 - 2025年4月22日)**
+  - 1.更新第三方库版本
+  - 2.添加完全境外用户判断逻辑
+
 - **9.8.17 新特性 (9.8.17 - 2025年4月14日)**
   - 1.更新第三方库版本
 
