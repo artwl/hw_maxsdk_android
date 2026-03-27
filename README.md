@@ -1,10 +1,10 @@
 # hwsdk_android
 
-本文档是Android版变现SDK，当前版本 `V9.8.50`， <b>  建议接SDK，就接最新的版本 </B>
+本文档是Android版变现SDK，当前版本 `V9.8.59`， <b>  建议接SDK，就接最新的版本 </B>
 
 ## 下载地址
 
-SDK 下载地址：[v.9.8.50](https://github.com/artwl/hw_maxsdk_android/releases)
+SDK 下载地址：[v.9.8.59](https://github.com/artwl/hw_maxsdk_android/releases)
 
 ## 接入文档
 
@@ -14,10 +14,14 @@ SDK 下载地址：[v.9.8.50](https://github.com/artwl/hw_maxsdk_android/release
 
 请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
 
-## 本版特性 (9.8.50 - 2026年1月)
+## 本版特性 (9.8.59 - 2026年3月)
 
 详细内容请查看更新记录，有完整的更新内容列表。
 
+- **9.8.59 新特性 (9.8.59 - 2026年3月27日)**
+  - 1.新增SDK内部打点
+  - 2.更新第三方库版本
+  
 - **9.8.50 新特性 (9.8.50 - 2026年1月28日)**
   - 1.优化SDK内部逻辑
   - 2.更新第三方库版本
