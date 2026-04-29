@@ -1,311 +1,214 @@
-# hwsdk_android
+```markdown
+# HwAds SDK Unity 接入说明 (版本 9.8.59)
 
-本文档是Android版变现SDK，当前版本 `V9.8.59`， <b>  建议接SDK，就接最新的版本 </B>
+本文档说明如何在 Unity 环境中接入 HwAds SDK 的 Android 原生广告和打点功能。
+本版本使用了最新的 `AndroidJavaProxy` 代理模式，**无需在场景中挂载任何特殊的 GameObject，且内部已自动处理主线程同步回调**，研发同学可直接在代码里进行无缝对接及 UI 操作。
 
-## 下载地址
+## 1. 导入库文件
 
-SDK 下载地址：[v.9.8.59](https://github.com/artwl/hw_maxsdk_android/releases)
+1. 将原生的 Android 插件（如 `.jar` 或 `.aar` 及其依赖）放置在 Unity 工程的 `Assets/Plugins/Android` 目录下。
+2. 将提供的 `HwAdsInterface.cs` 和 `HwAdsListenerProxies.cs` 放入工程的 `Assets/Scripts` 目录下即可。
 
-## 接入文档
+---
 
-接入请参考：[SDK接入文档,飞书文档](https://hellowd.feishu.cn/docs/doccnJOWCBfsHiAGPmkFeNg3D2f)
+## 2. API 使用说明
 
-## 需要帮助？
+所有 API 均位于 `HwAdsInterface` 静态类中。已内置平台检测，在 Windows / Mac 编辑器及 iOS 环境下调用会自动 return，不会报错。
 
-请先查看接入文档和常见问题，还有问题可联系对接人寻求技术支持
+### 1. 初始化前：数数 (ThinkingAnalytics) 与 Adjust 关联打点 (强制顺序)
 
-## 本版特性 (9.8.59 - 2026年3月)
+如果你的项目接入了数数平台 (ThinkingAnalytics)，为了让数数能成功关联 Adjust 数据，**必须严格按照以下顺序执行，必须在 HwAds SDK 初始化之前完成，否则会关联失败！**
 
-详细内容请查看更新记录，有完整的更新内容列表。
+```csharp
+// 【第一步】：初始化数数 SDK
+TDConfig config = new TDConfig("APPID", "SERVER");
+TDAnalytics.Init(config);
 
-- **9.8.59 新特性 (9.8.59 - 2026年3月27日)**
-  - 1.新增SDK内部打点
-  - 2.更新第三方库版本
-  
-- **9.8.50 新特性 (9.8.50 - 2026年1月28日)**
-  - 1.优化SDK内部逻辑
-  - 2.更新第三方库版本
-  
-- **9.8.32 新特性 (9.8.32 - 2025年11月17日)**
-  - 1.优化SDK内部逻辑
+// 【第二步】：获取 TE(数数) 的访客 ID，对应 TE 中的 #distinct_id
+var distinctId = TDAnalytics.GetDistinctId();
 
-- **9.8.30 新特性 (9.8.30 - 2025年11月4日)**
-  - 1.优化SDK内部逻辑
-  
-- **9.8.28 新特性 (9.8.28 - 2025年10月9日)**
-  - 1.更新第三方库版本
+// 【第三步】：将访客 ID 设置到 adjust 采集事件中
+// 参数1: ta_distinct_id
+// 参数2: ta_account_id （如果没有获取到 accountId，可以直接传空字符串 ""）
+HwAdsInterface.HwAdjustAddTa_distinct_id(distinctId, ""); 
+
+// ---------- 此后才能进行第四步：初始化 HwAds SDK ----------
+```
+
+### 2. 初始化 HwAds SDK (必接)
+
+在完成上述数数关联（如果有）之后，在游戏启动的首个场景（`Awake` 或 `Start` 中）尽早调用本 SDK 的初始化：
+
+```csharp
+// gameBrainId: 游戏ID
+// appToken: adjust平台 Token
+// isFirebaseOK: "yes" / "no"
+// isABTestOpen: "yes" / "no"
+// isMerge: "yes" / "no"
+
+HwAdsInterface.InitSDK("your_game_brain_id", "your_adjust_Apptoken", "yes", "no", "no");
+
+// 或者带 Banner 背景色的初始化
+// HwAdsInterface.InitSDK("your_game_brain_id", "your_token", "yes", 0xFFFFFF, "no", "no");
+```
+
+### 3. 激励视频广告回调设置 (极其重要)
+
+由于使用了最新的代理机制，监听广告生命周期只需实例化 `HwAdsRewardedVideoProxy` 并挂载事件即可。
+**重要：事件内部已自动切回 Unity 主线程，支持直接操作 UI。**
+
+为防止奖励弹窗与广告关闭动画重叠导致卡顿，**强烈建议采用“完成时标记，关闭时发奖”的最佳实践**。
+
+```csharp
+// 标记位：记录玩家是否真正看完了视频
+private bool isRewardEarned = false;
+
+void Start()
+{
+    // 1. 创建激励视频代理
+    HwAdsRewardedVideoProxy rewardProxy = new HwAdsRewardedVideoProxy();
+
+    // --- 绑定核心事件 ---
     
-- **9.8.21 新特性 (9.8.21 - 2025年7月9日)**
-  - 1.更新第三方库版本
-  - 2.添加谷歌用户意见征求设置
+    rewardProxy.OnLoadSuccess += () => {
+        Debug.Log("[回调] 激励视频加载成功");
+        // 建议：通知 UI 层点亮对应标签的“免费获取”按钮
+    };
 
-- **9.8.18 新特性 (9.8.18 - 2025年4月22日)**
-  - 1.更新第三方库版本
-  - 2.添加完全境外用户判断逻辑
+    rewardProxy.OnStarted += () => {
+        Debug.Log("[回调] 激励视频开始播放展示");
+        // 【强制要求】：在此处通知游戏暂停画面及背景音乐
+        // Time.timeScale = 0; AudioListener.pause = true; 等
+        isRewardEarned = false; // 每次开始前重置标记
+    };
 
-- **9.8.17 新特性 (9.8.17 - 2025年4月14日)**
-  - 1.更新第三方库版本
+    rewardProxy.OnCompleted += () => {
+        Debug.Log("[核心回调] 用户已完整看完激励视频，达成奖励条件");
+        // 最佳实践：在此处仅设置标记位，待在 OnClosed 中统一发奖
+        isRewardEarned = true; 
+    };
 
-- **9.8.15 新特性 (9.8.15 - 2025年2月26日)**
-  - 1.更新第三方库版本
-  - 2.添加SDK内打点
+    rewardProxy.OnClosed += () => {
+        Debug.Log("[回调] 激励视频页面被关闭（无论是否看完都会触发）");
+        
+        // 【核心逻辑处理】：
+        // 1. 通知游戏恢复画面及背景音乐
+        // Time.timeScale = 1; AudioListener.pause = false; 
 
-- **9.8.13 新特性 (9.8.13 - 2024年12月23日)**
-  - 1.更新第三方库版本
-  - 2.更新AppLovinQualityServiceGradlePlugin版本
+        // 2. 检查 OnCompleted 中设置的标记位，若为 true，则通知引擎层发放奖励
+        if (isRewardEarned) 
+        {
+            Debug.Log(">>> 发放金币奖励，播放特效！ <<<");
+            // ExecuteRewardLogic();
+            isRewardEarned = false; // 清空标记
+        }
+    };
     
-- **9.8.11 新特性 (9.8.11 - 2024年10月22日)**
-  - 1.新增打点
+    // --- 其他辅助事件 ---
+    rewardProxy.OnLoadFailure += () => Debug.Log("[回调] 激励视频加载失败");
+    rewardProxy.OnPlaybackError += () => Debug.Log("[回调] 激励播放过程中出现错误");
+    rewardProxy.OnClicked += () => Debug.Log("[回调] 广告被用户点击");
+
+    // 3. 注册给系统 (只需注册一次)
+    HwAdsInterface.SetHwAdsRewardedVideoListener(rewardProxy);
+}
+```
+
+### 4. 激励视频展示及点击打点 (展示入口)
+
+当玩家点击了 UI 上的“看视频获取奖励”按钮时，**务必先调用 `TrackRewardButtonClick` 记录点位，再请求展示广告。**
+
+```csharp
+public void ClickShowRewardButton()
+{
+    string tag = "double"; // 激励点位标签，例如："double", "revive" 等
     
-- **9.8.10 新特性 (9.8.10 - 2024年9月23日)**
-  - 1.修复崩溃问题
+    // 第一步：记录激励按钮点击事件（必调，无需等待加载结果）
+    HwAdsInterface.TrackRewardButtonClick(tag);
 
-- **9.8.9 新特性 (9.8.9 - 2024年9月23日)**
-  - 1.更新第三方库版本，修复Google play后台提醒的崩溃问题
+    // 第二步：请求展示激励视频广告，参数需与上方标签保持一致
+    // 建议在展示前可判断下有没有缓存：
+    if(HwAdsInterface.IsRewardLoad()) {
+        HwAdsInterface.ShowReward(tag); 
+    } else {
+        Debug.LogWarning("视频还未准备好，请稍后");
+    }
+}
+```
 
-- **9.8.8 新特性 (9.8.8 - 2024年9月14日)**
-  - 1.优化SDK功能
-  - 2.adjust更新至V5版本，去掉AdjustSigSdk库
+### 5. 插屏广告回调与展示
 
-- **9.8.7 新特性 (9.8.7 - 2024年7月12日)**
-  - 1.优化SDK功能
+插屏通常用于过关/暂停等节点，逻辑与激励视频相似，只需绑定 `HwAdsInterstitialProxy`：
+
+```csharp
+void Start()
+{
+    HwAdsInterstitialProxy interProxy = new HwAdsInterstitialProxy();
     
-- **9.8.6 新特性 (9.8.6 - 2024年6月5日)**
-  - 1.优化SDK功能
-  - 2.新增SDK打点
-    
-- **9.8.5 新特性 (9.8.5 - 2024年5月29日)**
-  - 1.优化SDK功能
+    interProxy.OnDismissed += (isFbOrAdmob) => {
+        Debug.Log("插屏广告被关闭，isFbOrAdmob = " + isFbOrAdmob);
+        // 可在这里继续游戏逻辑（恢复音乐/画面）
+    };
 
-- **9.8.3 新特性 (9.8.3 - 2024年5月16日)**
-  - 1.添加adjust SDK签名功能
+    // 其他事件：OnLoaded, OnFailed, OnShown, OnClicked 可酌情订阅
 
-- **9.8.1 新特性 (9.8.1 - 2024年4月9日)**
-  - 1.优化广告回调方法
-    
-- **9.8.0 新特性 (9.8.0 - 2024年4月7日)**
-  - 1.更新第三方库版本
-  - 2.新增bidmachine渠道
-    
-- **9.7.9 新特性 (9.7.9 - 2024年2月19日)**
-  - 1.更新第三方库版本
-  - 2.支持Google DMA
+    HwAdsInterface.SetHwAdsInterstitialListener(interProxy);
+}
 
-- **9.7.8 新特性 (9.7.8 - 2024年1月24日)**
-  - 1.更新AppLovin版本至最新版本，更新其他第三方库版本
-  - 2.支持Google CMP
-    
-- **9.7.0 新特性 (9.7.0 - 2022年10月10日)**
-  - 1.更新AppLovin版本至11.5.2，更新其他第三方库版本
-  - 2.okHttpClient请求时添加Android系统的判断，系统版本大于等于21
-  - 3.新增V1LTV打点，删掉旧的LTV打点
-  
-- **9.6.0 新特性 (9.6.0 - 2022年9月20日)**
-  - 1.添加判断区分Admob和Google Ad Manager，fyber和dt exchange的渠道名称
-  - 2.去掉UAC， guidefinish等无用打点token值
-  
-- **9.5.4 新特性 (9.5.4 - 2022年7月27日)**
-  - 1.更新了第三方SDK版本，注意build.gradle中的修改，unity-ads 4.0.1及以下版本不符合Google Play的用户数据政策，必须更新！！！
-  - 2.添加Firebase Crashlytics
-  - 3.添加内购是否打点的逻辑判断
-  
-- **9.5.3 新特性 (9.5.3 - 2022年7月12日)**
-  - 1.新增设置用户ID接口。
-  - 2.更新了第三方SDK版本，注意build.gradle中的修改，unity-ads 4.0.1及以下版本不符合Google Play的用户数据政策，必须更新！！！
-  
-- **9.5.2 新特性 (9.5.2 - 2022年6月21日)**
-  - 1.新增Firebase打点ad_impression
-  - 2.更新了第三方版本，注意build.gradle中的修改，unity-ads 4.0.1及以下版本不符合Google Play的用户数据政策，必须更新！！！
-  
-- **9.5.1 新特性 (9.5.1 - 2022年6月17日)**
-  - 1.添加Banner展示Firebase的打点
+public void ShowInterstitial()
+{
+    if (HwAdsInterface.IsInterLoad())
+    {
+        HwAdsInterface.ShowInter();
+    }
+}
+```
 
-- **9.5 新特性 (9.5 - 2022年6月9日)**
-  - 1.新用户请求服务端失败后SDK会读取本地hw-services.json配置加载广告。
-  - 2.请求间隔时间调整为15秒。
-  - 3.服务端参数解析失败时SDK打点hwServiceErrorToken事件到Adjust。
+### 6. 关键打点接入与内购验证
 
-- **9.4 新特性 (9.4 - 2022年5月25日)**
-  - 1.升级facebook到6.11.0
-  - 2.删除掉9.3中的另外一套聚合
-  
-- **9.3 新特性 (9.3 - 2022年4月24日)**
-  - 1.banner由2套聚合控制，可以任意切换
-  - 2.修复国内android12手机，没有授权网络权限第一次没有广告的bug
+#### 6.1 基础与高级打点
+```csharp
+// 基础事件打点
+HwAdsInterface.HwAnalyticsUserNew("actionToken", "category", "action", "label");
 
-- **9.1.1 新特性 (9.1.1 - 2022年3月30日)**
-  - 1.修复banner在某些场景下会中断的bug
+// AppLovin 高级事件打点（支持多级字典）
+var paramMap = new Dictionary<string, string> { { "item_id", "1001" }, { "price", "0.99" } };
+HwAdsInterface.TrackAppLovinEvent("purchase_item", paramMap);
+```
 
-- **9.1 新特性 (9.1 - 2022年3月28日)**
-  - 1.内购LTV增加版本号
+#### 6.2 核心：内购打点与二次验证 (IAP)
+当玩家发起内购成功后，务必调用此接口完成验证与打点。**请严格遵循参数说明格式化金额。**
 
-- **9.0.1 新特性 (9.0.1 - 2022年3月7日)**
-  - 1.修复：多了下划线，导致服务端不好处理数据。
-  - 2.内购加了版本号，方便排查数据
+**接口调用：**
+```csharp
+HwAdsInterface.HwAnalyticsPurchaseSecondVerify(
+    category, numberStr, currency, purchaseToken, productId, purchaseType, orderId, adjustDifferentPurchaseToken);
+```
+**参数详解与避坑指南：**
+*   `category`: 购买 key 值。**必须固定传 `"HwPurchase"`**。
+*   `number`: 内购本地化金额（`string` 类型）。
+    *   **获取要求**：请使用内购返回的 `priceAmountMicros`（微分单位值），转换成标准金额：`priceAmountMicros / 1000000.0`。
+    *    **极其重要：在将浮点金额 `ToString()` 传递时，必须使用 `CultureInfo.InvariantCulture`，以避免在欧盟等地区（使用逗号 `,` 代替小数点）发生严重解析和校验失败！**
+    *   写法示例：`price.ToString(System.Globalization.CultureInfo.InvariantCulture)`。
+*   `currency`: 本地化单位（例如："USD", "EUR"）。
+*   `purchaseToken`: Google / Apple 订单购买完成后返回的购买校验 Token。
+*   `productId`: 你在后台配置的商品 SKU ID。
+*   `purchaseType`: 内购商品类型。`1` 是订阅(Subscription)，`0` 是普通消费商品(Consumable)。
+*   `orderId`: 订单凭证流水号 ID。
+*   `adjustDifferentPurchaseToken`: 直接传入空字符串 `""` 即可。
 
-- **9.0 新特性 (9.0 - 2022年2月21日)**
-  - 1.广告LTV打点，避免重复，支持去重
-  - 2.渠道版本做了一次升级
+### 7. 欧盟隐私弹窗 (GDPR / UMP)
 
-- **8.6 新特性 (8.6 - 2022年2月16日)**
-  - 1.针对内购，新增一种LTV打点的方式；和服务端一起让内购的LTV更准确
+如果需要为欧洲地区玩家展示隐私合规弹窗或入口：
+```csharp
+// 判断当前环境是否需要显示隐私设置按钮
+bool needPrivacyBtn = HwAdsInterface.IsPrivacySettingsButtonEnabled();
+if (needPrivacyBtn)
+{
+    HwAdsInterface.PresentCMPForm();
+}
+```
 
-- **8.5 新特性 (8.5 - 2022年2月11日)**
-  - 1.完善banner的ltv打点
-  - 2.修复Android 12在vpn不稳定时，请求不到广告参数时，会有偶现的崩溃；
-  - 3.LTV打点针对新的渠道，增加子渠道打点
-
-- **8.4.2 新特性 (8.4.2 - 2022年1月26日)**
-  - 1.针对初始化接口，仅仅初始化1次；修复多次初始化的bug
-
-- **8.4.1 新特性 (8.4 - 2021年12月28日)**
-  - 今天发现，8.4的版本，传的jar包是8.3的版本；今天重新传一个8.4的版本。
-
-- **8.4 新特性 (8.4 - 2021年12月23日)**
-  - 1.支持了内购打点到firebase
-  - 2.去除了http的支持，注意xml中，删了一段代码
-  - 3.去掉了adcolony的广告
-  
-- **8.3 新特性 (8.3 - 2021年12月15日)**
-  - 1.这个版本主要针对banner的产品做了大的调整；
-  - 2.返回banner的高度，默认是50dp或者90d
-  - 3.获取Banner对象；通过获取这个banner对象，可以自由灵活控制banner显示的位置，以及对齐方式
-  - 4.针对banner，增加了smaato渠道，注意build.gradle中修改了
-  - 5.针对内购，SDK内部增加了一个参数，用于更精准的计算内购相关的模型
-
-- **8.2 新特性 (8.2 - 2021年12月9日)**
-  - 1.支持了内购打点到firebase
-  - 2.去除了http的支持，注意xml中，删了一段代码
-  - 3.去掉了adcolony的广告
-
-- **8.1.1 新特性 (8.1.1 - 2021年12月3日)**
-  - 1.针对内购，为了区分大R，中R，小R，增加了一个参数
-  
-- **8.1 新特性 (8.1 - 2021年11月24日)**
-  - 1.针对内购，订阅进行了优化，调用二次验证的API增加了订单id的参数。
-
-- **8.0.1 新特性 (8.0.1 - 2021年11月9日)**
-  - 1.针对Facebook无法精准归因的问题，做了升级
-  - 2.支持商业化方面的AB测试
-  
-- **7.4 新特性 (7.4 - 2021年10月14日)**
-  - 1.针对Facebook升级了全部SDK的版本
-  - 2.将插屏广告播放调整到主线程
-  
-- **7.3 新特性 (7.3 - 2021年9月28日)**
-  - 1.针对Android12 增加了一个适配的权限
-  
-- **7.2 新特性 (7.2 - 2021年9月2日)**
-  - 1.针对国内流量海外流量进行了区分
-  - 2.facebook升级到了6.6.0
- 
-- **7.1 新特性 (7.1 - 2021年8月20日)**
-  - 1.针对2家bidding渠道，升级小版本，bidding的效果更好。
-  
-- **7.0 新特性 (7.0 - 2021年8月10日)**
-  - 1.初始化接口，增加了是否支持firebase的参数，支持传“yes”，不支持传“no”
-  - 2.多支持一家bidding
-  
-- **6.7 新特性 (6.7 - 2021年7月22日)**
-  - 1.更多的日志输出，方便查bug，
-  - 2.支持用户级别证书抓包
-  
-- **6.6 新特性 (6.6 - 2021年7月20日)**
-  - 1.删除facebook统计相关的代码，facebook统计，7月1号开始不让用了
-
-- **6.5 新特性 (6.5 - 2021年7月5日)**
-  - 1.修改买量端针对roas买量打点
-  
-- **6.4 新特性 (6.4 - 2021年6月1日)**
-  - 1.统计ltv更精准
-  - 2.新增一家广告渠道
-  
-- **6.3 新特性 (6.3 - 2021年5月19日)**
-  - 1.升级Facebook的版本，针对新产品只有用这个版本才有facebook广告
-  - 2.替换一家广告的下载地址，之前的旧地址已经无法下载
-  
-- **6.2 新特性 (6.2 - 2021年4月28日)**
-  - 1.修改LTV打点的位置，使得LTV计算更加精准
-  - 
-- **6.0 新特性 (6.0 - 2021年3月24日)**
-  - 1.支持开屏广告
-  - 2.支持内购二次验证打点
-
-- **5.7 新特性 (5.7 - 2021年3月9日)**
-  - 1.SDK升级到最新版本
-
-- **5.5 新特性 (5.5 - 2021年1月14日)**
-  - 1.支持6家bidding
-  
-- **5.4 新特性 (5.4 - 2020年12月30日)**
-  - 1.新增mintegral渠道；
-  如果是从之前的版本升级，注意jar的替换，两个build.gradle中的修改
-
-- **5.3 新特性 (5.3 - 2020年12月3日)**
-  - 1.升级SDK版本，14.10
-  
-- **5.2 新特性 (5.2 - 2020年11月19日)**
-  - 1.修复统计会话数不准的bug
-  - 2.经过内部2个量级大的产品的验证，现在改成开放版
-
-- **beta 5.1 新特性 (5.1 - 2020年11月10日)**
-  - 1.增加服务端show，close打点
-  
-- **beta 5.0.1 新特性 (5.0.1 - 2020年10月19日 11月4日Update)**
-  - 1.全新的SDK，较上一个版本，initSDK的参数从10个减少到7个，其他接口保持一致
-  - 2.注意xml的配置
-  - 3.注意gradle修改了很多，需要重新配置
-  - 4.修改回调延时0.5秒的bug
-  
-- **3.5 新特性 (3.5 - 2020年11月2日)**
-  - 在3.4的基础上修改代码，banner加载完，就自动显示
-  
-- **3.4 新特性 (3.4 - 2020年10月9日)**
-  - facebook针对没有产生facebook收益的产品，9月28号一刀切，新应用需要升级到3.4才有facebook广告填充
-  
-- **3.3 新特性 (3.3 - 2020年9月30日)**
-  - 针对推广AEO投放，增加功能支持，需要开发打对应的5个事件，调用方法见文档
-  
-- **3.2 新特性 (3.2 - 2020年9月2日)**
-  - 删除一家被google play警告的SDK
-  
-- **3.1 新特性 (3.1 - 2020年8月5日)**
-  - 升级Pangle版本
-  
-- **3.0 新特性 (3.0 - 2020年7月28日)**
-  - 1.更精细化计算数据
-  - 2.推广需要打几个点，用于更多维度买量
-  - 3.和以前版本的SDK，取消了Application，初始化参数有8个token
-  
-- **2.3.1 新特性 (2.3.1 - 2020年7月23日)**
-  - 升级csj版本，2.5.0.0之前的不让使用，现在升级到2.9.0.3版本，csj插屏可以使用
-  
-- **2.3 新特性 (2.3 - 2020年5月25日)**
-  - 修正admob激励视频，中途关闭也给了奖励的bug
-  
-- **2.2 新特性 (2.2 - 2020年5月18日)**
-  - 修正内部插屏打点逻辑，显示激励广告挪到了主线程
-  
-- **2.1 新特性 (2.1 - 2020年5月11日)**
-  - 新增2家广告渠道，显示激励广告挪到了主线程
-  
-- **2.0 新特性 (2.0 - 2020年4月23日)**
-  - 广告渠道版本升级到最新；减轻服务端压力
-  
-- **1.5 新特性 (1.5 - 2020年4月8日)**
-  - 同步iOS 4.1版本的功能，将打点事件，1个拆分成3个，提高服务端拉取效率；
-  
-- **1.4 新特性 (1.4 - 2020年3月30日)**
-  - 同步iOS 4.0版本的功能，增加banner加载成功的回调；
-  
-- **1.3 新特性 (1.3 - 2020年3月23日)**
-  - 同步iOS 3.1版本的功能；
-  
-- **1.2 新特性 (1.2 - 2020年2月28日)**
-  - 删除了一家渠道，渠道告知可能存在风险；
-
-- **1.1 新特性 (1.1 - 2020年1月18日)**
-  - 修复插屏控制逻辑不准的bug
-
-- **1.0 新特性**
-  - 支持海外广告
+---
+## 联系支持
+如果有任何接口调用、逻辑疑问或打包报错，请及时联系对接人员。
