@@ -168,10 +168,10 @@ public void ShowInterstitial()
 
 #### 6.1 基础与高级打点
 ```csharp
-// 基础事件打点
+// 基础事件打点（仅针对adjust平台打点）
 HwAdsInterface.HwAnalyticsUserNew("actionToken", "category", "action", "label");
 
-// AppLovin 高级事件打点（支持多级字典）
+// AppLovin 高级事件打点（支持多级字典）（仅针对applovin平台打点）
 var paramMap = new Dictionary<string, string> { { "item_id", "1001" }, { "price", "0.99" } };
 HwAdsInterface.TrackAppLovinEvent("purchase_item", paramMap);
 ```
