@@ -57,6 +57,9 @@ HwAdsInterface.InitSDK("your_game_brain_id", "your_adjust_Apptoken", "yes", "no"
 由于使用了最新的代理机制，监听广告生命周期只需实例化 `HwAdsRewardedVideoProxy` 并挂载事件即可。
 **重要：事件内部已自动切回 Unity 主线程，支持直接操作 UI。**
 
+激励广告是否已加载好，以 `HwAdsInterface.IsRewardLoad()` 返回 `true` 为准。
+`OnLoadSuccess` 仅用于接收 Android 回调，不要在该回调中判断广告加载状态或据此更新 UI。
+
 为防止奖励弹窗与广告关闭动画重叠导致卡顿，**强烈建议采用“完成时标记，关闭时发奖”的最佳实践**。
 
 ```csharp
@@ -72,7 +75,6 @@ void Start()
     
     rewardProxy.OnLoadSuccess += () => {
         Debug.Log("[回调] 激励视频加载成功");
-        // 建议：通知 UI 层点亮对应标签的“免费获取”按钮
     };
 
     rewardProxy.OnStarted += () => {

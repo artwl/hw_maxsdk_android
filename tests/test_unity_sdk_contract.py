@@ -36,6 +36,11 @@ class UnitySdkContractTests(unittest.TestCase):
         self.assertIn("OnLoadFailureWithError?.Invoke(errorCode, errorMessage)", detailed_failure.group(0))
         self.assertIn("OnLoadFailure?.Invoke()", detailed_failure.group(0))
 
+    def test_readme_uses_reward_load_state_instead_of_load_success_for_ui_state(self):
+        load_success_block = README.split("rewardProxy.OnLoadSuccess", 1)[1].split("};", 1)[0]
+        self.assertNotIn("点亮", load_success_block)
+        self.assertIn("HwAdsInterface.IsRewardLoad()", README)
+
 
 if __name__ == "__main__":
     unittest.main()
