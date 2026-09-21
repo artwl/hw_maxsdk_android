@@ -27,7 +27,8 @@ class UnitySdkContractTests(unittest.TestCase):
         self.assertRegex(rewarded, r"void onAdRevenuePaid\(double adRevenue\)")
         self.assertRegex(rewarded, r"void onRewardedVideoLoadFailure\(int errorCode, string errorMessage\)")
         detailed_failure = re.search(
-            r"void onRewardedVideoLoadFailure\(int errorCode, string errorMessage\).*?\n    ",
+            r"void onRewardedVideoLoadFailure\(int errorCode, string errorMessage\).*?"
+            r"(?=\n    void onRewardedVideoStarted)",
             rewarded,
             re.S,
         )

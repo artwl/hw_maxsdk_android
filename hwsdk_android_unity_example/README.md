@@ -1,5 +1,5 @@
 ```markdown
-# HwAds SDK Unity 接入说明 (版本 9.8.59)
+# HwAds SDK Unity 接入说明 (版本 9.8.78)
 
 本文档说明如何在 Unity 环境中接入 HwAds SDK 的 Android 原生广告和打点功能。
 本版本使用了最新的 `AndroidJavaProxy` 代理模式，**无需在场景中挂载任何特殊的 GameObject，且内部已自动处理主线程同步回调**，研发同学可直接在代码里进行无缝对接及 UI 操作。
@@ -106,8 +106,13 @@ void Start()
     
     // --- 其他辅助事件 ---
     rewardProxy.OnLoadFailure += () => Debug.Log("[回调] 激励视频加载失败");
+    rewardProxy.OnLoadFailureWithError += (errorCode, errorMessage) =>
+        Debug.LogError($"[回调] 激励视频加载失败: {errorCode}, {errorMessage}");
     rewardProxy.OnPlaybackError += () => Debug.Log("[回调] 激励播放过程中出现错误");
     rewardProxy.OnClicked += () => Debug.Log("[回调] 广告被用户点击");
+    rewardProxy.OnAdRevenuePaid += revenue => Debug.Log($"[回调] 激励广告收益: {revenue}");
+
+    // OnLoadFailureWithError 会同时触发原有的 OnLoadFailure，旧接入无需修改。
 
     // 3. 注册给系统 (只需注册一次)
     HwAdsInterface.SetHwAdsRewardedVideoListener(rewardProxy);
@@ -151,6 +156,7 @@ void Start()
     };
 
     // 其他事件：OnLoaded, OnFailed, OnShown, OnClicked 可酌情订阅
+    interProxy.OnAdRevenuePaid += revenue => Debug.Log($"插屏广告收益: {revenue}");
 
     HwAdsInterface.SetHwAdsInterstitialListener(interProxy);
 }

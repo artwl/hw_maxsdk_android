@@ -15,6 +15,7 @@ public class HwAdsInterstitialProxy : AndroidJavaProxy
     public Action OnShown;
     public Action OnClicked;
     public Action<bool> OnDismissed;
+    public Action<double> OnAdRevenuePaid;
 
     // 获取当前 Unity 主线程的上下文
     private SynchronizationContext mainThreadContext;
@@ -43,6 +44,7 @@ public class HwAdsInterstitialProxy : AndroidJavaProxy
     void onInterstitialShown() => RunOnMainThread(() => OnShown?.Invoke());
     void onInterstitialClicked() => RunOnMainThread(() => OnClicked?.Invoke());
     void onInterstitialDismissed(bool isFborAdmob) => RunOnMainThread(() => OnDismissed?.Invoke(isFborAdmob));
+    void onAdRevenuePaid(double adRevenue) => RunOnMainThread(() => OnAdRevenuePaid?.Invoke(adRevenue));
 }
 
 /// <summary>
@@ -58,6 +60,8 @@ public class HwAdsRewardedVideoProxy : AndroidJavaProxy
     public Action OnClicked;
     public Action OnClosed;
     public Action OnCompleted; 
+    public Action<double> OnAdRevenuePaid;
+    public Action<int, string> OnLoadFailureWithError;
     
     private SynchronizationContext mainThreadContext;
 
@@ -80,11 +84,17 @@ public class HwAdsRewardedVideoProxy : AndroidJavaProxy
 
     void onRewardedVideoLoadSuccess() => RunOnMainThread(() => OnLoadSuccess?.Invoke());
     void onRewardedVideoLoadFailure() => RunOnMainThread(() => OnLoadFailure?.Invoke());
+    void onRewardedVideoLoadFailure(int errorCode, string errorMessage) => RunOnMainThread(() =>
+    {
+        OnLoadFailureWithError?.Invoke(errorCode, errorMessage);
+        OnLoadFailure?.Invoke();
+    });
     void onRewardedVideoStarted() => RunOnMainThread(() => OnStarted?.Invoke());
     void onRewardedVideoPlaybackError() => RunOnMainThread(() => OnPlaybackError?.Invoke());
     void onRewardedVideoClicked() => RunOnMainThread(() => OnClicked?.Invoke());
     void onRewardedVideoClosed() => RunOnMainThread(() => OnClosed?.Invoke());
     void onRewardedVideoCompleted() => RunOnMainThread(() => OnCompleted?.Invoke());
+    void onAdRevenuePaid(double adRevenue) => RunOnMainThread(() => OnAdRevenuePaid?.Invoke(adRevenue));
 }
 
 #endregion

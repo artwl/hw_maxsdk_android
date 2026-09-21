@@ -11,7 +11,7 @@ public class HwAdsInterface
     private static AndroidJavaClass _hwAdsClass;
 
     // --- 静态常量值 ---
-    public const string SDKVersion = "9.8.61";
+    public const string SDKVersion = "9.8.78";
 
     private static AndroidJavaClass HwAdsClass
     {
